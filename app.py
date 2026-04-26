@@ -3,6 +3,7 @@ import random
 import os
 from PIL import Image
 import base64
+import time
 
 # ------------------ PAGE CONFIG ------------------
 st.set_page_config(
@@ -63,13 +64,16 @@ st.divider()
 st.title("💖 Arpana's OS")
 st.caption("Running smoothly since you walked in 😌")
 
-progress = st.progress(0)
-for i in range(0, 101, 20):
-    progress.progress(i)
+# Smooth 3-second loading bar
+progress_bar = st.progress(0)
+
+for i in range(101):
+    progress_bar.progress(i)
+    time.sleep(0.03)  # 0.03 * 100 ≈ 3 seconds
 
 st.success("Happiness loaded: 100%")
-
 st.divider()
+
 
 # ------------------ SYSTEM STATS ------------------
 st.subheader("📊 System Status")
